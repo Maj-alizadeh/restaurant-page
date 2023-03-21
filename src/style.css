@@ -1,10 +1,61 @@
-* {
-    padding: 0;
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
     margin: 0;
-    font-size: 1em;
-}
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
 .header {
-    background-color: lightgray;
+    background-color: #111827dd;
+    color: white;
     height: 100px;
     display: flex;
     gap: 40px;
@@ -17,11 +68,82 @@
     cursor: pointer;
 }
 .header a:hover {
-    background-color: rgb(187, 183, 183);
+    background-color:#374151;
+}
+
+.header a.active {
+    background-color: #6b728066;
+    color: white;
+}
+
+.footer {
+    background-color:#111827dd ;
+    color: white;
+}
+
+
+
+.content {
+    min-height: 100vh;
+    background-image: url('background-img.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .main {
-    background-image: url('background-img.jpg');
+    width: 700px;
+    background-color:#0f172a55;
+    margin: 20px auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main p {
+    color: white;
+    font-size: 2rem;
+    background-color: #0f172aaa;
+    width: 300px;
+    padding: 50px 50px;
+    text-align: center;
+}
+
+.home-image {
+    width: 500px;
     height: 500px;
-    background-size: cover;
+    object-fit: cover;
+}
+
+.menu {
+    width: 700px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin:30px auto;
+    background-color: #0f172a55;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.food-container {
+    background-color: #0f172abb;
+    color: white;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px  auto;
+    font-size: 1.1rem;
+}
+
+.image-container {
+    object-fit: contain;
+    height: 180px;
 }
