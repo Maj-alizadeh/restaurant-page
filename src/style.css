@@ -60,8 +60,10 @@
     display: flex;
     gap: 40px;
     font-size: 2em;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    gap: 320px;
+    padding-left: 20px;
 }
 .header a {
     padding: 20px;
@@ -93,7 +95,7 @@
 
 .main {
     width: 700px;
-    background-color:#0f172a55;
+    background-color:#0f172acc;
     margin: 20px auto;
     padding: 30px;
     display: flex;
@@ -105,9 +107,7 @@
 
 .main p {
     color: white;
-    font-size: 2rem;
-    background-color: #0f172aaa;
-    width: 300px;
+    font-size: 1.4rem;
     padding: 50px 50px;
     text-align: center;
 }
