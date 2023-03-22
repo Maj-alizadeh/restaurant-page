@@ -1,5 +1,6 @@
 import homePage from "./home";
 import menuPage from "./menu";
+import contactPage from "./contact";
 import "./style.css";
 
 // Content container
@@ -52,6 +53,13 @@ function linkClick(event) {
       content.removeChild(main);
       content.removeChild(footer);
       main = menuPage;
+      content.appendChild(main);
+      content.appendChild(footer);
+      break;
+    case "Contact":
+      content.removeChild(main);
+      content.removeChild(footer);
+      main = contactPage;
       content.appendChild(main);
       content.appendChild(footer);
       break;
