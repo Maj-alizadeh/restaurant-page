@@ -1,29 +1,21 @@
 import homePage from "./home";
 import menuPage from "./menu";
-import contactPage from "./contact";
+import contactPage, { elementCreator } from "./contact";
 import "./style.css";
 
 // Content container
-const content = document.createElement("div");
-content.classList.add("content");
+const content = elementCreator("div", "", "content");
 document.body.appendChild(content);
 
 // Header
-const header = document.createElement("div");
-header.classList.add("header");
+const header = elementCreator("div", "", "header");
 const rightSection = document.createElement("div");
-const restaurantName = document.createElement("p");
-restaurantName.innerText = "My Restaurant";
+const restaurantName = elementCreator("p", "My Restaurant");
 rightSection.appendChild(restaurantName);
-
 const middleSection = document.createElement("div");
-const home = document.createElement("a");
-home.innerHTML = "Home";
-// home.classList.add("active");
-const menu = document.createElement("a");
-menu.innerHTML = "Menu";
-const contact = document.createElement("a");
-contact.innerHTML = "Contact";
+const home = elementCreator("a", "Home");
+const menu = elementCreator("a", "Menu");
+const contact = elementCreator("a", "Contact");
 
 let activeTab = home;
 activeTab.classList.add("active");
@@ -34,18 +26,15 @@ middleSection.appendChild(contact);
 
 header.appendChild(rightSection);
 header.appendChild(middleSection);
-// Main Content
-// const main = document.createElement("div");
-// main.innerHTML = "main content";
 
 // Footer
-const footer = document.createElement("div");
-footer.classList.add("footer");
-footer.innerHTML = "All Rights Reserved © Site by Majed";
+const footer = elementCreator(
+  "div",
+  "All Rights Reserved © Site by Majed",
+  "footer"
+);
 
 let main = homePage;
-
-// const content = do cument.getElementById("content");
 content.appendChild(header);
 content.appendChild(main);
 content.appendChild(footer);

@@ -169,3 +169,8 @@
     font-weight: bold;
     margin-top: 20px;
 }
+
+.contact p {
+  text-align: center;
+  line-height: 2;
+}

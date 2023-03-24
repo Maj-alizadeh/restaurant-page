@@ -1,23 +1,21 @@
-function contactPage() {
-  const contact = document.createElement("div");
-  contact.classList.add("contact");
-  const location = document.createElement("p");
-  location.innerText = "Location";
-  location.classList.add("contact-bold");
-  const address = document.createElement("p");
-  address.innerText = "	277 Canal St, New York";
-  const phoneNumber = document.createElement("p");
-  const phone = document.createElement("p");
-  phone.classList.add("contact-bold");
-  phone.innerText = "Phone";
-  phoneNumber.innerText = "123456789";
-  const workingHours = document.createElement("p");
-  workingHours.innerText = "Working Hours";
-  workingHours.classList.add("contact-bold");
-  const hours1 = document.createElement("p");
-  hours1.innerText = "Friday & Saturday at 1:00p";
-  const hours2 = document.createElement("p");
-  hours2.innerText = "Thursday, Sunday, & Monday at 4:30p";
+// P element creator
+function elementCreator(type, innerText, classList) {
+  const element = document.createElement(type);
+  element.innerText = innerText;
+  element.classList = classList;
+  return element;
+}
+
+function contactPageMaker(contact) {
+  const location = elementCreator("p", "Location", "contact-bold");
+  const address = elementCreator("p", "277 Canal St, New York");
+  const phone = elementCreator("p", "Phone", "contact-bold");
+  const phoneNumber = elementCreator("p", "123-456789");
+  const workingHours = elementCreator("p", "Working Hours", "contact-bold");
+  const hours1 = elementCreator(
+    "p",
+    "Friday & Saturday at 1:00p \n Thursday, Sunday, & Monday at 4:30p"
+  );
 
   contact.appendChild(location);
   contact.appendChild(address);
@@ -25,9 +23,14 @@ function contactPage() {
   contact.appendChild(phoneNumber);
   contact.appendChild(workingHours);
   contact.appendChild(hours1);
-  contact.appendChild(hours2);
+}
+
+function contactPage() {
+  const contact = elementCreator("div", "", "contact");
+  contactPageMaker(contact);
 
   return contact;
 }
 
 export default contactPage();
+export { elementCreator };

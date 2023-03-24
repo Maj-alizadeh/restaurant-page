@@ -1,17 +1,15 @@
 import restaurantImage from "./images/home-image.jpg";
+import { elementCreator } from "./contact";
 
 function homePage() {
-  const main = document.createElement("div");
-  main.classList.add("main");
-  const slogan = document.createElement("p");
-  slogan.innerText =
-    "Test us one time, Be customer always \n Best burgers in the world";
-  const homeImage = new Image();
+  const main = elementCreator("div", "", "main");
+  const slogan = elementCreator(
+    "p",
+    "Test us one time, Be customer always \n Best burgers in the world"
+  );
+  const homeImage = elementCreator("img", "", "home-image");
   homeImage.src = restaurantImage;
-  homeImage.classList.add("home-image");
-  const welcome = document.createElement("p");
-  welcome.innerText = "Welcome";
-  welcome.classList.add("welcome");
+  const welcome = elementCreator("p", "Welcome", "welcome");
 
   main.appendChild(slogan);
   main.appendChild(homeImage);
