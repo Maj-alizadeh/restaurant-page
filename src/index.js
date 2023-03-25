@@ -16,14 +16,11 @@ const middleSection = document.createElement("div");
 const home = elementCreator("a", "Home");
 const menu = elementCreator("a", "Menu");
 const contact = elementCreator("a", "Contact");
-
 let activeTab = home;
 activeTab.classList.add("active");
-
 middleSection.appendChild(home);
 middleSection.appendChild(menu);
 middleSection.appendChild(contact);
-
 header.appendChild(rightSection);
 header.appendChild(middleSection);
 
@@ -34,48 +31,43 @@ const footer = elementCreator(
   "footer"
 );
 
-let main = homePage;
+let main = document.createElement("div");
+main.appendChild(homePage);
 content.appendChild(header);
 content.appendChild(main);
 content.appendChild(footer);
 
+// Hilight the active tab
+function makeTabActive(tab) {
+  activeTab.classList.remove("active");
+  if (tab === "Home") activeTab = home;
+  else if (tab === "Menu") activeTab = menu;
+  else if (tab === "Contact") activeTab = contact;
+  activeTab.classList.add("active");
+}
+
+// Change tab on anchor click
 function linkClick(event) {
   const anchor = event.target.innerHTML;
   switch (anchor) {
     case "Home":
-      content.removeChild(main);
-      content.removeChild(footer);
-      main = homePage;
-      activeTab.classList.remove("active");
-      activeTab = home;
-      activeTab.classList.add("active");
-      content.appendChild(main);
-      content.appendChild(footer);
+      main.innerHTML = "";
+      main.appendChild(homePage);
+      makeTabActive(anchor);
       break;
     case "Menu":
-      content.removeChild(main);
-      content.removeChild(footer);
-      main = menuPage;
-      activeTab.classList.remove("active");
-      activeTab = menu;
-      activeTab.classList.add("active");
-      content.appendChild(main);
-      content.appendChild(footer);
+      main.innerHTML = "";
+      main.appendChild(menuPage);
+      makeTabActive(anchor);
       break;
     case "Contact":
-      content.removeChild(main);
-      content.removeChild(footer);
-      main = contactPage;
-      activeTab.classList.remove("active");
-      activeTab = contact;
-      activeTab.classList.add("active");
-      content.appendChild(main);
-      content.appendChild(footer);
+      main.innerHTML = "";
+      main.appendChild(contactPage);
+      makeTabActive(anchor);
       break;
     default:
       main = homePage;
   }
-  if (event.target.innerHTML === "menu") event.target.classList.add("active");
 }
 
 const links = document.querySelectorAll("a");
